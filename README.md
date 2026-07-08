@@ -1,16 +1,22 @@
-## Hi there 👋
+# Citadel Consortium
 
-<!--
-**citadelconsortium/citadelconsortium** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Modern holding company website for Citadel Consortium.
 
-Here are some ideas to get you started:
+## Local Development
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+```bash
+npm start
+```
+
+The site runs at `http://localhost:3000` by default.
+
+## Railway Deployment
+
+Railway can deploy this repository with Nixpacks. The included `railway.toml`
+sets the start command to:
+
+```bash
+npm start
+```
+
+The server reads Railway's `PORT` environment variable automatically.
