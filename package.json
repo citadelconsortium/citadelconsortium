@@ -2,7 +2,7 @@
   "name": "citadel-consortium",
   "version": "1.0.0",
   "private": true,
-  "description": "Citadel Consortium holding company website.",
+  "description": "Citadel Consortium multi-industry holding company and consultation website.",
   "scripts": {
     "start": "npx serve public",
     "build": "node -e \"console.log('Static site ready in public/')\""

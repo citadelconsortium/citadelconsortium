@@ -3,6 +3,53 @@ if (year) {
   year.textContent = new Date().getFullYear();
 }
 
+const menuToggle = document.querySelector(".menu-toggle");
+const nav = document.querySelector("#primaryNav");
+
+function closeMenu() {
+  document.body.classList.remove("menu-open");
+  menuToggle?.setAttribute("aria-expanded", "false");
+}
+
+menuToggle?.addEventListener("click", () => {
+  const isOpen = document.body.classList.toggle("menu-open");
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+});
+
+nav?.addEventListener("click", (event) => {
+  if (event.target instanceof HTMLAnchorElement) {
+    closeMenu();
+  }
+});
+
+window.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeMenu();
+  }
+});
+
+const revealItems = document.querySelectorAll(".reveal");
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        revealObserver.unobserve(entry.target);
+      }
+    }
+  },
+  { threshold: 0.16 }
+);
+
+for (const item of revealItems) {
+  revealObserver.observe(item);
+}
+
+const tickerTrack = document.querySelector(".ticker-track");
+if (tickerTrack) {
+  tickerTrack.innerHTML += tickerTrack.innerHTML;
+}
+
 const canvas = document.querySelector("#networkCanvas");
 const context = canvas?.getContext("2d");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -10,7 +57,8 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
 const state = {
   width: 0,
   height: 0,
-  points: []
+  points: [],
+  mouse: { x: 0, y: 0, active: false }
 };
 
 function resizeCanvas() {
@@ -25,14 +73,28 @@ function resizeCanvas() {
   canvas.style.height = `${state.height}px`;
   context.setTransform(ratio, 0, 0, ratio, 0, 0);
 
-  const pointCount = Math.max(30, Math.min(86, Math.floor(state.width / 18)));
+  const pointCount = Math.max(42, Math.min(120, Math.floor(state.width / 13)));
   state.points = Array.from({ length: pointCount }, (_, index) => ({
     x: Math.random() * state.width,
     y: Math.random() * state.height,
-    vx: (Math.random() - 0.5) * 0.28,
-    vy: (Math.random() - 0.5) * 0.28,
-    radius: index % 7 === 0 ? 2.2 : 1.35
+    vx: (Math.random() - 0.5) * 0.36,
+    vy: (Math.random() - 0.5) * 0.36,
+    radius: index % 8 === 0 ? 2.35 : 1.25,
+    hue: index % 5 === 0 ? "gold" : index % 3 === 0 ? "sky" : "navy"
   }));
+}
+
+function drawPoint(point) {
+  const colors = {
+    gold: "rgba(213, 170, 71, 0.58)",
+    sky: "rgba(107, 168, 191, 0.46)",
+    navy: "rgba(18, 57, 104, 0.34)"
+  };
+
+  context.fillStyle = colors[point.hue];
+  context.beginPath();
+  context.arc(point.x, point.y, point.radius, 0, Math.PI * 2);
+  context.fill();
 }
 
 function draw() {
@@ -44,8 +106,20 @@ function draw() {
     point.x += point.vx;
     point.y += point.vy;
 
-    if (point.x < 0 || point.x > state.width) point.vx *= -1;
-    if (point.y < 0 || point.y > state.height) point.vy *= -1;
+    if (point.x < -10) point.x = state.width + 10;
+    if (point.x > state.width + 10) point.x = -10;
+    if (point.y < -10) point.y = state.height + 10;
+    if (point.y > state.height + 10) point.y = -10;
+
+    if (state.mouse.active) {
+      const dx = state.mouse.x - point.x;
+      const dy = state.mouse.y - point.y;
+      const distance = Math.hypot(dx, dy);
+      if (distance < 130) {
+        point.x -= dx * 0.002;
+        point.y -= dy * 0.002;
+      }
+    }
   }
 
   for (let i = 0; i < state.points.length; i += 1) {
@@ -57,9 +131,9 @@ function draw() {
       const dy = point.y - other.y;
       const distance = Math.hypot(dx, dy);
 
-      if (distance < 150) {
-        const alpha = (1 - distance / 150) * 0.2;
-        context.strokeStyle = `rgba(16, 47, 90, ${alpha})`;
+      if (distance < 138) {
+        const alpha = (1 - distance / 138) * 0.24;
+        context.strokeStyle = `rgba(18, 57, 104, ${alpha})`;
         context.lineWidth = 1;
         context.beginPath();
         context.moveTo(point.x, point.y);
@@ -68,10 +142,7 @@ function draw() {
       }
     }
 
-    context.fillStyle = "rgba(212, 169, 73, 0.42)";
-    context.beginPath();
-    context.arc(point.x, point.y, point.radius, 0, Math.PI * 2);
-    context.fill();
+    drawPoint(point);
   }
 
   if (!prefersReducedMotion.matches) {
@@ -83,4 +154,12 @@ if (canvas && context) {
   resizeCanvas();
   draw();
   window.addEventListener("resize", resizeCanvas);
+  window.addEventListener("pointermove", (event) => {
+    state.mouse.x = event.clientX;
+    state.mouse.y = event.clientY;
+    state.mouse.active = true;
+  });
+  window.addEventListener("pointerleave", () => {
+    state.mouse.active = false;
+  });
 }
