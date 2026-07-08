@@ -658,6 +658,13 @@ h3 {
   filter: drop-shadow(0 28px 36px rgba(0, 0, 0, 0.35));
 }
 
+.mandate-owner {
+  font-weight: 700;
+  color: var(--gold, #d5aa47);
+  border-left: 2px solid rgba(213, 170, 71, 0.6);
+  padding-left: 0.8rem;
+}
+
 .mandate-copy h2,
 .mandate-copy p {
   color: var(--white);
