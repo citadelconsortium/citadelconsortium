@@ -4,9 +4,7 @@
   "private": true,
   "description": "Citadel Consortium holding company website.",
   "scripts": {
-    "start": "node server.js"
-  },
-  "engines": {
-    "node": ">=20"
+    "start": "npx serve public",
+    "build": "node -e \"console.log('Static site ready in public/')\""
   }
 }

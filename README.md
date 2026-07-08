@@ -8,15 +8,12 @@ Modern holding company website for Citadel Consortium.
 npm start
 ```
 
-The site runs at `http://localhost:3000` by default.
+This serves the static site from `public/`.
 
-## Railway Deployment
+## Netlify Deployment
 
-Railway can deploy this repository with Nixpacks. The included `railway.toml`
-sets the start command to:
+Netlify can deploy this repository directly. The included `netlify.toml` uses:
 
-```bash
-npm start
-```
-
-The server reads Railway's `PORT` environment variable automatically.
+- Publish directory: `public`
+- Build command: none
+- Redirect fallback: all routes serve `/index.html`
