@@ -142,9 +142,6 @@ img {
 .brand img {
   height: 44px;
   width: auto;
-  /* The artwork is printed on solid black; lighten blends that black into the
-     header instead of showing it as a rectangle. */
-  mix-blend-mode: lighten;
 }
 
 .main-nav {
@@ -298,9 +295,6 @@ h1 {
 .hero-logo {
   width: min(430px, 82%);
   height: auto;
-  /* The logo artwork is printed on solid black; lighten blends that black into
-     the page instead of showing it as a rectangle. */
-  mix-blend-mode: lighten;
   animation: logoFloat 5s ease-in-out infinite;
 }
 
@@ -654,8 +648,6 @@ h2 {
 .crest img {
   width: 100%;
   height: auto;
-  /* Same black-background logo treatment as the hero. */
-  mix-blend-mode: lighten;
 }
 
 .mandate-copy h2 {

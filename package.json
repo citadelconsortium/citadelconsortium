@@ -5,6 +5,7 @@
   "description": "Citadel Consortium multi-industry holding company and consultation website.",
   "scripts": {
     "start": "npx serve public",
-    "build": "node -e \"console.log('Static site ready in public/')\""
+    "build": "node -e \"console.log('Static site ready in public/')\"",
+    "test": "node --test tests/*.test.mjs"
   }
 }
