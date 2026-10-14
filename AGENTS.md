@@ -36,6 +36,11 @@ docker compose -f docker-compose.base44.yml up -d --build
 
 - `package.json`'s `npm start` uses `npx serve public`; the compose file
   installs `serve` at container startup so boot does not depend on `npx`.
+- The logo artwork (`public/assets/citadel-logo.png`, also used as favicon,
+  header brand, hero visual and mandate crest) is printed on a solid black
+  background and is blended onto the dark page with `mix-blend-mode: lighten` in
+  `styles.css` — the black reads as the page instead of a rectangle. A
+  transparent-background logo replacement should drop that rule.
 - The hero backdrop and the two full-width image bands are hosted on the Base44
   media CDN. To make the repo self-contained for a Netlify deploy, download them
   into `public/assets/` and swap the `src` values.

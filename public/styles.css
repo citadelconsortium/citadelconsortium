@@ -142,6 +142,9 @@ img {
 .brand img {
   height: 44px;
   width: auto;
+  /* The artwork is printed on solid black; lighten blends that black into the
+     header instead of showing it as a rectangle. */
+  mix-blend-mode: lighten;
 }
 
 .main-nav {
@@ -290,126 +293,16 @@ h1 {
   gap: 12px;
 }
 
-/* ---------- hero console (astrolabe) ---------- */
+/* ---------- hero logo ---------- */
 
-.console {
-  position: relative;
-  --size: 420px;
-  display: grid;
-  width: var(--size);
-  height: var(--size);
-  flex: none;
-  place-items: center;
-  perspective: 900px;
+.hero-logo {
+  width: min(430px, 82%);
+  height: auto;
+  /* The logo artwork is printed on solid black; lighten blends that black into
+     the page instead of showing it as a rectangle. */
+  mix-blend-mode: lighten;
   animation: logoFloat 5s ease-in-out infinite;
 }
-
-.sweep {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: var(--size);
-  height: var(--size);
-  margin: calc(var(--size) / -2) 0 0 calc(var(--size) / -2);
-  border-radius: 50%;
-  background: conic-gradient(from 0deg, rgba(255, 215, 0, 0.3), rgba(255, 215, 0, 0) 25%);
-}
-
-.pulse {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: calc(var(--size) * 0.476);
-  height: calc(var(--size) * 0.476);
-  margin: calc(var(--size) * -0.238);
-  border-radius: 50%;
-  border: 1px solid rgba(229, 184, 105, 0.55);
-}
-
-.pulse-b {
-  animation-delay: 1.7s;
-}
-
-.core {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  display: grid;
-  width: calc(var(--size) * 0.405);
-  height: calc(var(--size) * 0.405);
-  margin: calc(var(--size) * -0.2025);
-  place-items: center;
-  border: 1px solid var(--gold);
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #17396b, var(--navy-2) 60%, var(--navy));
-  box-shadow: 0 0 50px rgba(229, 184, 105, 0.28), inset 0 0 30px rgba(0, 0, 0, 0.6);
-}
-
-.core img {
-  width: 56%;
-  height: 56%;
-  object-fit: contain;
-}
-
-.ring {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  border-radius: 50%;
-  border: 1px solid rgba(229, 184, 105, 0.55);
-}
-
-.ring-1 {
-  width: calc(var(--size) * 0.595);
-  height: calc(var(--size) * 0.595);
-  margin: calc(var(--size) * -0.2975);
-  transform: rotateX(70deg);
-}
-
-.ring-2 {
-  width: calc(var(--size) * 0.786);
-  height: calc(var(--size) * 0.786);
-  margin: calc(var(--size) * -0.393);
-  border-color: rgba(229, 184, 105, 0.4);
-  border-style: dashed;
-  transform: rotateY(70deg);
-}
-
-.ring-3 {
-  width: calc(var(--size) * 0.976);
-  height: calc(var(--size) * 0.976);
-  margin: calc(var(--size) * -0.488);
-  border-color: rgba(255, 215, 0, 0.3);
-}
-
-.orbit {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 0;
-  height: 0;
-}
-
-.capsule {
-  position: absolute;
-  left: var(--r);
-  top: -13px;
-  padding: 6px 11px;
-  border: 1px solid var(--gold);
-  border-radius: 999px;
-  background: rgba(10, 25, 47, 0.9);
-  box-shadow: 0 0 14px rgba(255, 215, 0, 0.3);
-  color: var(--amber);
-  font-size: 11px;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-.orbit-1 { --r: calc(var(--size) * 0.3);   --d: 18s; --dl: -0.2s; }
-.orbit-2 { --r: calc(var(--size) * 0.35);  --d: 23s; --dl: -6s; }
-.orbit-3 { --r: calc(var(--size) * 0.4);   --d: 28s; --dl: -12s; }
-.orbit-4 { --r: calc(var(--size) * 0.445); --d: 33s; --dl: -18s; }
-.orbit-5 { --r: calc(var(--size) * 0.47);  --d: 38s; --dl: -24s; }
 
 /* ---------- ticker ---------- */
 
@@ -754,21 +647,15 @@ h2 {
 }
 
 .crest {
-  display: grid;
-  width: 300px;
-  height: 300px;
+  width: min(320px, 82vw);
   flex: none;
-  place-items: center;
-  border: 1px solid var(--gold);
-  border-radius: 50%;
-  background: radial-gradient(circle, var(--navy-3), var(--navy) 70%);
-  box-shadow: 0 0 60px rgba(229, 184, 105, 0.25), inset 0 0 40px rgba(229, 184, 105, 0.12);
 }
 
 .crest img {
-  width: 56%;
-  height: 56%;
-  object-fit: contain;
+  width: 100%;
+  height: auto;
+  /* Same black-background logo treatment as the hero. */
+  mix-blend-mode: lighten;
 }
 
 .mandate-copy h2 {
@@ -877,35 +764,6 @@ h2 {
   }
 }
 
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes r1 {
-  to {
-    transform: rotateX(70deg) rotateZ(360deg);
-  }
-}
-
-@keyframes r2 {
-  to {
-    transform: rotateY(70deg) rotateZ(-360deg);
-  }
-}
-
-@keyframes pls {
-  0% {
-    transform: scale(0.6);
-    opacity: 0.8;
-  }
-  100% {
-    transform: scale(2.1);
-    opacity: 0;
-  }
-}
-
 @keyframes blip {
   50% {
     opacity: 0.4;
@@ -955,36 +813,6 @@ h2 {
      a second animation — a plain `h1` rule loses to the .rv class otherwise. */
   .hero h1 {
     animation: up 0.9s var(--ease) both, shim 6s linear infinite;
-  }
-
-  .sweep {
-    animation: spin 5s linear infinite;
-  }
-
-  .pulse {
-    animation: pls 3.5s ease-out infinite;
-  }
-
-  .ring-1 {
-    animation: r1 14s linear infinite;
-  }
-
-  .ring-2 {
-    animation: r2 20s linear infinite;
-  }
-
-  .ring-3 {
-    animation: spin 40s linear infinite reverse;
-  }
-
-  .orbit {
-    animation: spin var(--d) linear infinite;
-    animation-delay: var(--dl);
-  }
-
-  .capsule {
-    animation: spin var(--d) linear infinite reverse;
-    animation-delay: var(--dl);
   }
 
   .step::before {
@@ -1096,12 +924,6 @@ h2 {
     align-items: flex-start;
   }
 
-  .crest {
-    width: min(300px, 78vw);
-    height: auto;
-    aspect-ratio: 1;
-  }
-
   .contact {
     flex-direction: column;
     align-items: flex-start;
@@ -1155,20 +977,6 @@ h2 {
   .btn {
     width: 100%;
     text-align: center;
-  }
-
-  .console {
-    --size: min(320px, 66vw);
-  }
-
-  /* Pull the orbital labels in so the outer capsules never widen the page. */
-  .orbit-1 { --r: calc(var(--size) * 0.28); }
-  .orbit-2 { --r: calc(var(--size) * 0.31); }
-  .orbit-3 { --r: calc(var(--size) * 0.34); }
-
-  .orbit-4,
-  .orbit-5 {
-    display: none;
   }
 
   .command-grid,
