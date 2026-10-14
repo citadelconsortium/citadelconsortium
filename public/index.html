@@ -11,276 +11,317 @@
     <meta property="og:title" content="Citadel Consortium">
     <meta property="og:description" content="A multi-industry holding company and consultation partner for ambitious ventures.">
     <meta property="og:image" content="/assets/citadel-logo.png">
-    <meta name="theme-color" content="#07162b">
+    <meta name="theme-color" content="#050C18">
     <link rel="icon" type="image/png" href="/assets/citadel-favicon.png">
     <link rel="apple-touch-icon" href="/assets/citadel-favicon.png">
     <link rel="preload" href="/assets/citadel-logo.png" as="image">
     <link rel="stylesheet" href="/styles.css">
   </head>
   <body>
-    <canvas class="network-canvas" id="networkCanvas" aria-hidden="true"></canvas>
+    <canvas class="constellation" id="constellationCanvas" aria-hidden="true"></canvas>
 
-    <header class="site-header">
-      <a class="brand" href="#top" aria-label="Citadel Consortium home">
-        <img src="/assets/citadel-logo.png" alt="Citadel Consortium logo">
-      </a>
+    <div class="hero-backdrop" aria-hidden="true">
+      <img
+        src="https://media.base44.com/images/public/6acf2cd56e0e7f17fab7ce2e/977037d9c_generated_5187d879.jpg"
+        alt=""
+        decoding="async"
+      >
+      <span class="hero-scrim"></span>
+    </div>
 
-      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+    <div class="page">
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="Citadel Consortium home">
+          <img src="/assets/citadel-logo.png" alt="Citadel Consortium logo">
+        </a>
 
-      <nav class="main-nav" id="primaryNav" aria-label="Primary navigation">
-        <a href="#industries">Industries</a>
-        <a href="#services">Consultation</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#operating-model">Operations</a>
-        <a href="#contact">Contact</a>
-      </nav>
+        <nav class="main-nav" id="primaryNav" aria-label="Primary navigation">
+          <a href="#industries">Industries</a>
+          <a href="#consultation">Consultation</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#operations">Operations</a>
+          <a href="#contact">Contact</a>
+        </nav>
 
-      <a class="nav-action" href="mailto:citadelconsortium@proton.me">Book Consultation</a>
-    </header>
-
-    <main id="top">
-      <section class="hero-section reveal">
-        <div class="hero-copy">
-          <p class="eyebrow">Multi-industry holding company / Strategic consultation / Venture operations</p>
-          <h1>Building across every industry with disciplined strategy and modern execution.</h1>
-          <p class="hero-lede">
-            Citadel Consortium owns, develops, advises, and supports ventures across sectors.
-            We combine consultation, operating systems, digital infrastructure, and brand
-            architecture to turn ambitious ideas into durable companies.
-          </p>
-          <div class="hero-actions" aria-label="Primary actions">
-            <a class="button primary" href="mailto:citadelconsortium@proton.me">Request Consultation</a>
-            <a class="button secondary" href="#industries">View Industry Reach</a>
-          </div>
+        <div class="header-actions">
+          <a class="btn btn-gold header-cta" href="mailto:citadelconsortium@proton.me">Book Consultation</a>
+          <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
+      </header>
 
-        <div class="hero-visual" aria-label="Global operating network">
-          <div class="globe-stage">
-            <div class="globe">
-              <div class="globe-grid"></div>
-              <div class="globe-light"></div>
-              <img class="hero-logo" src="/assets/citadel-favicon.png" alt="">
+      <main id="top">
+        <div class="wrap">
+          <section class="hero">
+            <div class="hero-copy">
+              <p class="eyebrow rv" style="animation-delay:.1s">
+                Multi-industry holding company / Strategic consultation / Venture operations
+              </p>
+              <h1 class="rv" style="animation-delay:.2s">
+                Building across every industry with disciplined strategy and modern execution.
+              </h1>
+              <p class="lede rv" style="animation-delay:.35s">
+                Citadel Consortium owns, develops, advises, and supports ventures across sectors.
+                We combine consultation, operating systems, digital infrastructure, and brand
+                architecture to turn ambitious ideas into durable companies.
+              </p>
+              <div class="hero-actions rv" style="animation-delay:.5s">
+                <a class="btn btn-gold" href="mailto:citadelconsortium@proton.me">Request Consultation</a>
+                <a class="btn btn-glass" href="#industries">View Industry Reach</a>
+              </div>
             </div>
-            <div class="ring ring-one"></div>
-            <div class="ring ring-two"></div>
-            <div class="ring ring-three"></div>
-            <span class="node node-one">Capital</span>
-            <span class="node node-two">Consulting</span>
-            <span class="node node-three">Operations</span>
-            <span class="node node-four">Technology</span>
-            <span class="node node-five">Brands</span>
+
+            <div class="hero-console rv" style="animation-delay:.3s">
+              <div class="console" aria-label="Global operating network">
+                <span class="sweep" aria-hidden="true"></span>
+                <span class="pulse" aria-hidden="true"></span>
+                <span class="pulse pulse-b" aria-hidden="true"></span>
+                <span class="ring ring-1" aria-hidden="true"></span>
+                <span class="ring ring-2" aria-hidden="true"></span>
+                <span class="ring ring-3" aria-hidden="true"></span>
+                <div class="core">
+                  <img src="/assets/citadel-favicon.png" alt="Citadel Consortium emblem">
+                </div>
+                <span class="orbit orbit-1"><span class="capsule">Capital</span></span>
+                <span class="orbit orbit-2"><span class="capsule">Consulting</span></span>
+                <span class="orbit orbit-3"><span class="capsule">Operations</span></span>
+                <span class="orbit orbit-4"><span class="capsule">Technology</span></span>
+                <span class="orbit orbit-5"><span class="capsule">Brands</span></span>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="ticker-band" aria-label="Industry coverage">
+          <div class="ticker-track">
+            <span>Technology</span>
+            <span>Finance</span>
+            <span>Real Estate</span>
+            <span>Retail</span>
+            <span>Media</span>
+            <span>Health</span>
+            <span>Energy</span>
+            <span>Education</span>
+            <span>Hospitality</span>
+            <span>Logistics</span>
+            <span>Manufacturing</span>
+            <span>Consumer Brands</span>
           </div>
         </div>
-      </section>
 
-      <section class="ticker-band" aria-label="Industry coverage">
-        <div class="ticker-track">
-          <span>Technology</span>
-          <span>Finance</span>
-          <span>Real Estate</span>
-          <span>Retail</span>
-          <span>Media</span>
-          <span>Health</span>
-          <span>Energy</span>
-          <span>Education</span>
-          <span>Hospitality</span>
-          <span>Logistics</span>
-          <span>Manufacturing</span>
-          <span>Consumer Brands</span>
-        </div>
-      </section>
+        <div class="wrap">
+          <section class="command-grid" aria-label="Company principles">
+            <div class="module reveal">
+              <strong>All Sectors</strong>
+              <span>Industry-agnostic strategy</span>
+            </div>
+            <div class="module reveal">
+              <strong>Consulting</strong>
+              <span>Clear executive guidance</span>
+            </div>
+            <div class="module reveal">
+              <strong>Build</strong>
+              <span>Systems that scale</span>
+            </div>
+            <div class="module reveal">
+              <strong>Hold</strong>
+              <span>Long-term asset value</span>
+            </div>
+          </section>
 
-      <section class="metric-band reveal" aria-label="Company principles">
-        <div>
-          <strong>All Sectors</strong>
-          <span>Industry-agnostic strategy</span>
-        </div>
-        <div>
-          <strong>Consulting</strong>
-          <span>Clear executive guidance</span>
-        </div>
-        <div>
-          <strong>Build</strong>
-          <span>Systems that scale</span>
-        </div>
-        <div>
-          <strong>Hold</strong>
-          <span>Long-term asset value</span>
-        </div>
-      </section>
+          <section class="section reveal" id="industries">
+            <p class="eyebrow">Industry Reach</p>
+            <h2>Not limited to one market. Built to operate wherever value can be created.</h2>
+            <p>
+              Citadel Consortium is designed to work across all industries: digital, physical,
+              consumer, enterprise, local, global, early-stage, and established. The operating
+              standard stays consistent while the strategy adapts to the sector.
+            </p>
+          </section>
 
-      <section class="section-intro reveal" id="industries">
-        <p class="eyebrow">Industry Reach</p>
-        <h2>Not limited to one market. Built to operate wherever value can be created.</h2>
-        <p>
-          Citadel Consortium is designed to work across all industries: digital, physical,
-          consumer, enterprise, local, global, early-stage, and established. The operating
-          standard stays consistent while the strategy adapts to the sector.
-        </p>
-      </section>
+          <section class="industry-grid" aria-label="Industries supported">
+            <article class="card reveal">
+              <span class="n mono">01</span>
+              <h3>Technology &amp; Automation</h3>
+              <p>Software, AI workflows, digital products, platform strategy, and technical infrastructure.</p>
+            </article>
+            <article class="card reveal">
+              <span class="n mono">02</span>
+              <h3>Commerce &amp; Consumer</h3>
+              <p>Retail, ecommerce, hospitality, creator brands, service businesses, and customer experience.</p>
+            </article>
+            <article class="card reveal">
+              <span class="n mono">03</span>
+              <h3>Assets &amp; Infrastructure</h3>
+              <p>Real estate, logistics, energy, manufacturing, operations, and asset-backed opportunities.</p>
+            </article>
+            <article class="card reveal">
+              <span class="n mono">04</span>
+              <h3>Media, Finance &amp; Services</h3>
+              <p>Financial models, media properties, education, advisory, professional services, and IP.</p>
+            </article>
+          </section>
 
-      <section class="industry-grid" aria-label="Industries supported">
-        <article class="industry-card reveal">
-          <span>01</span>
-          <h3>Technology & Automation</h3>
-          <p>Software, AI workflows, digital products, platform strategy, and technical infrastructure.</p>
-        </article>
-        <article class="industry-card reveal">
-          <span>02</span>
-          <h3>Commerce & Consumer</h3>
-          <p>Retail, ecommerce, hospitality, creator brands, service businesses, and customer experience.</p>
-        </article>
-        <article class="industry-card reveal">
-          <span>03</span>
-          <h3>Assets & Infrastructure</h3>
-          <p>Real estate, logistics, energy, manufacturing, operations, and asset-backed opportunities.</p>
-        </article>
-        <article class="industry-card reveal">
-          <span>04</span>
-          <h3>Media, Finance & Services</h3>
-          <p>Financial models, media properties, education, advisory, professional services, and IP.</p>
-        </article>
-      </section>
-
-      <section class="services-section reveal" id="services">
-        <div class="services-copy">
-          <p class="eyebrow">Consultation</p>
-          <h2>Strategic consultation for founders, operators, and partners.</h2>
-          <p>
-            We offer direct consultation for business strategy, venture formation, digital
-            transformation, brand positioning, operational planning, and growth architecture.
-          </p>
-          <a class="button primary" href="mailto:citadelconsortium@proton.me">citadelconsortium@proton.me</a>
-        </div>
-        <div class="service-list" aria-label="Consultation services">
-          <div class="service-item">
-            <span>Strategy</span>
-            <h3>Business & market direction</h3>
-            <p>Clarify the offer, target market, pricing, moat, risk, and execution roadmap.</p>
+          <div class="band reveal">
+            <img
+              src="https://media.base44.com/images/public/6acf2cd56e0e7f17fab7ce2e/39bef7f05_generated_ad8ac074.jpg"
+              alt="Gold-lit citadel architecture"
+              loading="lazy"
+              decoding="async"
+            >
           </div>
-          <div class="service-item">
-            <span>Systems</span>
-            <h3>Operating architecture</h3>
-            <p>Design workflows, reporting, automation, customer journeys, and repeatable processes.</p>
+
+          <section class="consultation reveal" id="consultation">
+            <div class="consultation-panel">
+              <p class="eyebrow">Consultation</p>
+              <h2>Strategic consultation for founders, operators, and partners.</h2>
+              <p>
+                We offer direct consultation for business strategy, venture formation, digital
+                transformation, brand positioning, operational planning, and growth architecture.
+              </p>
+              <a class="btn btn-gold" href="mailto:citadelconsortium@proton.me">citadelconsortium@proton.me</a>
+            </div>
+
+            <div class="pipeline">
+              <div class="step">
+                <span class="tag mono">Strategy</span>
+                <h3>Business &amp; market direction</h3>
+                <p>Clarify the offer, target market, pricing, moat, risk, and execution roadmap.</p>
+              </div>
+              <div class="step">
+                <span class="tag mono">Systems</span>
+                <h3>Operating architecture</h3>
+                <p>Design workflows, reporting, automation, customer journeys, and repeatable processes.</p>
+              </div>
+              <div class="step">
+                <span class="tag mono">Growth</span>
+                <h3>Brand and revenue channels</h3>
+                <p>Shape positioning, launch plans, partnerships, sales systems, and conversion paths.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="section reveal" id="portfolio">
+            <p class="eyebrow">Portfolio Platform</p>
+            <h2>A consortium structure for ventures in any field.</h2>
+            <p>
+              Each company can keep its own identity and operating freedom while benefiting from
+              shared executive thinking, technical capability, brand support, and disciplined
+              capital allocation.
+            </p>
+          </section>
+
+          <section class="bento" aria-label="Portfolio focus areas">
+            <article class="bento-card reveal">
+              <div class="index">I</div>
+              <h3>Company Formation</h3>
+              <p>Launch new ventures with market logic, clear positioning, execution systems, and owner-level accountability.</p>
+            </article>
+            <article class="bento-card is-featured reveal">
+              <div class="index">II</div>
+              <h3>Digital Infrastructure</h3>
+              <p>Build the automations, websites, data flows, AI tools, and technical assets that make companies faster.</p>
+            </article>
+            <article class="bento-card is-featured reveal">
+              <div class="index">III</div>
+              <h3>Brand Ecosystems</h3>
+              <p>Create brands with strong identity, commercial purpose, customer trust, and room to scale.</p>
+            </article>
+            <article class="bento-card reveal">
+              <div class="index">IV</div>
+              <h3>Strategic Holdings</h3>
+              <p>Hold software, media, intellectual property, commercial assets, and operating interests across sectors.</p>
+            </article>
+          </section>
+
+          <div class="band reveal">
+            <img
+              src="https://media.base44.com/images/public/6acf2cd56e0e7f17fab7ce2e/bcbfad459_generated_6c3dbcea.jpg"
+              alt="Gold network nodes on deep navy"
+              loading="lazy"
+              decoding="async"
+            >
           </div>
-          <div class="service-item">
-            <span>Growth</span>
-            <h3>Brand and revenue channels</h3>
-            <p>Shape positioning, launch plans, partnerships, sales systems, and conversion paths.</p>
-          </div>
-        </div>
-      </section>
 
-      <section class="section-intro reveal" id="portfolio">
-        <p class="eyebrow">Portfolio Platform</p>
-        <h2>A consortium structure for ventures in any field.</h2>
-        <p>
-          Each company can keep its own identity and operating freedom while benefiting from
-          shared executive thinking, technical capability, brand support, and disciplined capital allocation.
-        </p>
-      </section>
+          <section class="section reveal" id="operations">
+            <p class="eyebrow">Operating Model</p>
+            <h2>One standard. Many industries. Practical execution.</h2>
+            <p>
+              Citadel Consortium acts as a strategic center: shaping the thesis, creating the
+              operating system, installing the tools, and keeping every venture focused on
+              measurable progress.
+            </p>
+          </section>
 
-      <section class="portfolio-grid" aria-label="Portfolio focus areas">
-        <article class="portfolio-card reveal">
-          <div class="card-index">I</div>
-          <h3>Company Formation</h3>
-          <p>Launch new ventures with market logic, clear positioning, execution systems, and owner-level accountability.</p>
-        </article>
-        <article class="portfolio-card featured reveal">
-          <div class="card-index">II</div>
-          <h3>Digital Infrastructure</h3>
-          <p>Build the automations, websites, data flows, AI tools, and technical assets that make companies faster.</p>
-        </article>
-        <article class="portfolio-card reveal">
-          <div class="card-index">III</div>
-          <h3>Brand Ecosystems</h3>
-          <p>Create brands with strong identity, commercial purpose, customer trust, and room to scale.</p>
-        </article>
-        <article class="portfolio-card reveal">
-          <div class="card-index">IV</div>
-          <h3>Strategic Holdings</h3>
-          <p>Hold software, media, intellectual property, commercial assets, and operating interests across sectors.</p>
-        </article>
-      </section>
+          <section class="sequence" aria-label="Operating process">
+            <div class="sequence-item reveal">
+              <b class="mono">01</b>
+              <div>
+                <h3>Diagnose the opportunity</h3>
+                <p>Map the market, offer, competition, constraints, financial logic, and strongest route to value.</p>
+              </div>
+            </div>
+            <div class="sequence-item reveal">
+              <b class="mono">02</b>
+              <div>
+                <h3>Build the machine</h3>
+                <p>Develop brand, product, systems, website, automations, reporting, and operating cadence.</p>
+              </div>
+            </div>
+            <div class="sequence-item reveal">
+              <b class="mono">03</b>
+              <div>
+                <h3>Scale what proves itself</h3>
+                <p>Use performance signals to allocate time, capital, talent, and technical effort where it compounds.</p>
+              </div>
+            </div>
+          </section>
 
-      <section class="split-section reveal" id="operating-model">
-        <div class="split-copy">
-          <p class="eyebrow">Operating Model</p>
-          <h2>One standard. Many industries. Practical execution.</h2>
-          <p>
-            Citadel Consortium acts as a strategic center: shaping the thesis, creating the
-            operating system, installing the tools, and keeping every venture focused on measurable progress.
-          </p>
-        </div>
-        <div class="process-stack" aria-label="Operating process">
-          <div class="process-item">
-            <span>01</span>
+          <section class="mandate reveal">
+            <div class="crest">
+              <img src="/assets/citadel-favicon.png" alt="Citadel Consortium emblem" loading="lazy">
+            </div>
+            <div class="mandate-copy">
+              <p class="eyebrow">Mandate</p>
+              <h2>Protected upside through structure, scrutiny, speed, and consultation.</h2>
+              <p class="body">
+                The consortium model gives every opportunity a stronger foundation: clear thinking,
+                defensible assets, sober risk control, precise execution, and a bias toward building
+                companies that can last beyond the first campaign.
+              </p>
+              <p class="owner">Citadel Consortium is owned by Wayne Saint Murindell.</p>
+              <div class="tags mono">
+                <span>Venture formation</span>
+                <span>Consultation</span>
+                <span>Portfolio operations</span>
+                <span>Brand development</span>
+                <span>Technical systems</span>
+                <span>Commercial strategy</span>
+                <span>Asset ownership</span>
+                <span>Cross-industry advisory</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="contact reveal" id="contact">
             <div>
-              <h3>Diagnose the opportunity</h3>
-              <p>Map the market, offer, competition, constraints, financial logic, and strongest route to value.</p>
+              <p class="eyebrow">Contact</p>
+              <h2>For consultations, partnerships, acquisitions, and strategic opportunities.</h2>
+              <p>Send a concise note about the opportunity, current stage, industry, and what kind of support you need.</p>
             </div>
-          </div>
-          <div class="process-item">
-            <span>02</span>
-            <div>
-              <h3>Build the machine</h3>
-              <p>Develop brand, product, systems, website, automations, reporting, and operating cadence.</p>
-            </div>
-          </div>
-          <div class="process-item">
-            <span>03</span>
-            <div>
-              <h3>Scale what proves itself</h3>
-              <p>Use performance signals to allocate time, capital, talent, and technical effort where it compounds.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+            <a class="btn btn-gold" href="mailto:citadelconsortium@proton.me">citadelconsortium@proton.me</a>
+          </section>
 
-      <section class="mandate-section reveal">
-        <div class="mandate-visual">
-          <img src="/assets/citadel-favicon.png" alt="">
+          <footer class="site-footer">
+            <span>&copy; <span id="year"></span> Citadel Consortium, owned by Wayne Saint Murindell. All rights reserved.</span>
+            <a href="#top">Back to top</a>
+          </footer>
         </div>
-        <div class="mandate-copy">
-          <p class="eyebrow">Mandate</p>
-          <h2>Protected upside through structure, scrutiny, speed, and consultation.</h2>
-          <p>
-            The consortium model gives every opportunity a stronger foundation: clear thinking,
-            defensible assets, sober risk control, precise execution, and a bias toward building
-            companies that can last beyond the first campaign.
-          </p>
-          <p class="mandate-owner">Citadel Consortium is owned by Wayne Saint Murindell.</p>
-          <div class="mandate-list">
-            <span>Venture formation</span>
-            <span>Consultation</span>
-            <span>Portfolio operations</span>
-            <span>Brand development</span>
-            <span>Technical systems</span>
-            <span>Commercial strategy</span>
-            <span>Asset ownership</span>
-            <span>Cross-industry advisory</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="contact-section reveal" id="contact">
-        <div>
-          <p class="eyebrow">Contact</p>
-          <h2>For consultations, partnerships, acquisitions, and strategic opportunities.</h2>
-          <p>Send a concise note about the opportunity, current stage, industry, and what kind of support you need.</p>
-        </div>
-        <a class="button primary" href="mailto:citadelconsortium@proton.me">citadelconsortium@proton.me</a>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <span>&copy; <span id="year"></span> Citadel Consortium, owned by Wayne Saint Murindell. All rights reserved.</span>
-      <a href="#top">Back to top</a>
-    </footer>
+      </main>
+    </div>
 
     <script src="/app.js"></script>
   </body>
