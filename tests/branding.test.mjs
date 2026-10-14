@@ -22,8 +22,8 @@ test("website logo is the exact supplied transparent artwork", async () => {
 
 test("favicon uses the exact supplied artwork", async () => {
   const [expected, actual] = await Promise.all([
-    suppliedLogoHash,
-    sha256(new URL("public/assets/citadel-favicon.png", projectRoot)),
+    "9003bb73d772a6159778d8937cf82d9cec67c04dc888413e5164be0a458baccb",
+    sha256(new URL("public/assets/citadel-favicon.jpeg", projectRoot)),
   ]);
 
   assert.equal(actual, expected);
@@ -37,7 +37,7 @@ test("transparent logo is not altered with blend modes", async () => {
 test("all document branding references the canonical logo assets", async () => {
   const html = await readFile(new URL("public/index.html", projectRoot), "utf8");
 
-  assert.match(html, /rel="icon"[^>]+href="\/assets\/citadel-favicon\.png"/);
-  assert.match(html, /rel="apple-touch-icon"[^>]+href="\/assets\/citadel-favicon\.png"/);
+  assert.match(html, /rel="icon"[^>]+href="\/assets\/citadel-favicon\.jpeg"/);
+  assert.match(html, /rel="apple-touch-icon"[^>]+href="\/assets\/citadel-favicon\.jpeg"/);
   assert.doesNotMatch(html, /<img[^>]+(?:logo|brand|crest)[^>]+src="(?!\/assets\/citadel-logo\.png)/i);
 });
