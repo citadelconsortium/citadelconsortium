@@ -29,28 +29,36 @@ window.addEventListener("keydown", (event) => {
 });
 
 const revealItems = document.querySelectorAll(".reveal");
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-    for (const entry of entries) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        revealObserver.unobserve(entry.target);
-      }
-    }
-  },
-  { threshold: 0.16 }
-);
 
-for (const item of revealItems) {
-  revealObserver.observe(item);
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      }
+    },
+    { threshold: 0.14 }
+  );
+
+  for (const item of revealItems) {
+    revealObserver.observe(item);
+  }
+} else {
+  for (const item of revealItems) {
+    item.classList.add("is-visible");
+  }
 }
 
+// The marquee loops on translateX(-50%), so the track needs its content twice.
 const tickerTrack = document.querySelector(".ticker-track");
 if (tickerTrack) {
   tickerTrack.innerHTML += tickerTrack.innerHTML;
 }
 
-const canvas = document.querySelector("#networkCanvas");
+const canvas = document.querySelector("#constellationCanvas");
 const context = canvas?.getContext("2d");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
@@ -73,25 +81,24 @@ function resizeCanvas() {
   canvas.style.height = `${state.height}px`;
   context.setTransform(ratio, 0, 0, ratio, 0, 0);
 
-  const pointCount = Math.max(42, Math.min(120, Math.floor(state.width / 13)));
+  const pointCount = Math.max(40, Math.min(110, Math.floor(state.width / 15)));
   state.points = Array.from({ length: pointCount }, (_, index) => ({
     x: Math.random() * state.width,
     y: Math.random() * state.height,
-    vx: (Math.random() - 0.5) * 0.36,
-    vy: (Math.random() - 0.5) * 0.36,
-    radius: index % 8 === 0 ? 2.35 : 1.25,
-    hue: index % 5 === 0 ? "gold" : index % 3 === 0 ? "sky" : "navy"
+    vx: (Math.random() - 0.5) * 0.32,
+    vy: (Math.random() - 0.5) * 0.32,
+    radius: index % 8 === 0 ? 2.1 : 1.1,
+    tone: index % 5 === 0 ? "amber" : "gold"
   }));
 }
 
 function drawPoint(point) {
   const colors = {
-    gold: "rgba(213, 170, 71, 0.58)",
-    sky: "rgba(107, 168, 191, 0.46)",
-    navy: "rgba(18, 57, 104, 0.34)"
+    gold: "rgba(229, 184, 105, 0.42)",
+    amber: "rgba(255, 215, 0, 0.3)"
   };
 
-  context.fillStyle = colors[point.hue];
+  context.fillStyle = colors[point.tone];
   context.beginPath();
   context.arc(point.x, point.y, point.radius, 0, Math.PI * 2);
   context.fill();
@@ -132,8 +139,8 @@ function draw() {
       const distance = Math.hypot(dx, dy);
 
       if (distance < 138) {
-        const alpha = (1 - distance / 138) * 0.24;
-        context.strokeStyle = `rgba(18, 57, 104, ${alpha})`;
+        const alpha = (1 - distance / 138) * 0.15;
+        context.strokeStyle = `rgba(229, 184, 105, ${alpha})`;
         context.lineWidth = 1;
         context.beginPath();
         context.moveTo(point.x, point.y);
