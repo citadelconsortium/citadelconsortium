@@ -1,0 +1,43 @@
+# Base44 sandbox environment for Citadel Consortium.
+# The site is fully static (public/), so there is no database, no build step and
+# no secret. This file serves the live source with the repository's own dev
+# command (`npm start` -> serve public) so edits show up immediately.
+#
+# Usage: docker compose -f docker-compose.base44.yml up -d --build
+services:
+  web:
+    image: node:22-alpine
+    working_dir: /app
+    command:
+      - sh
+      - -ec
+      - |
+        # `npm start` in this repo runs `npx serve public`; install the same
+        # static server once per container so startup does not depend on npx.
+        npm install --global serve@14 --no-fund --no-audit
+        exec serve public --listen 3000 --single --no-clipboard
+    ports:
+      - "3000:3000"
+    volumes:
+      # Live source: edits are served straight from the cloned repository.
+      - ./:/app
+      # Cache the npm download so container re-creation stays fast.
+      - npm-cache:/root/.npm
+    environment:
+      # Platform flag, passed through unchanged (see AGENTS.md).
+      - BASE44_PREVIEW_MODE
+    restart: on-failure
+    healthcheck:
+      # Probes real HTTP responsiveness of the static site (node has fetch).
+      test:
+        - CMD
+        - node
+        - -e
+        - "fetch('http://127.0.0.1:3000/').then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))"
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+volumes:
+  npm-cache:
