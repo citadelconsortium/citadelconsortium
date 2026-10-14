@@ -264,6 +264,10 @@ img {
   background: linear-gradient(90deg, transparent, var(--gold));
 }
 
+.hero-copy > .eyebrow::before {
+  content: none;
+}
+
 h1 {
   margin-bottom: 22px;
   font-size: clamp(1.9rem, 3.7vw, 2.6rem);
