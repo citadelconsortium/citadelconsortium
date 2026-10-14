@@ -4,10 +4,7 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 const projectRoot = new URL("../", import.meta.url);
-const suppliedLogo = new URL(
-  "../../Downloads/CitadelConsortiumLogo.png",
-  import.meta.url,
-);
+const suppliedLogoHash = "d32c7d5b5efd4cbe109d5d46e5ffe790365c1abaeab87dd183c307dfc6cefded";
 
 async function sha256(path) {
   const bytes = await readFile(path);
@@ -16,7 +13,7 @@ async function sha256(path) {
 
 test("website logo is the exact supplied transparent artwork", async () => {
   const [expected, actual] = await Promise.all([
-    sha256(suppliedLogo),
+    suppliedLogoHash,
     sha256(new URL("public/assets/citadel-logo.png", projectRoot)),
   ]);
 
@@ -25,7 +22,7 @@ test("website logo is the exact supplied transparent artwork", async () => {
 
 test("favicon uses the exact supplied artwork", async () => {
   const [expected, actual] = await Promise.all([
-    sha256(suppliedLogo),
+    suppliedLogoHash,
     sha256(new URL("public/assets/citadel-favicon.png", projectRoot)),
   ]);
 
