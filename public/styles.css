@@ -20,7 +20,7 @@
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --mono: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
-  --wrap: 1180px;
+  --wrap: 1600px;
 }
 
 * {
